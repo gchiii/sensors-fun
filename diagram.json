@@ -1,0 +1,25 @@
+{
+    "version": 1,
+    "author": "George C. Huntington III",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "board-esp32-c3-devkitm-1",
+        "id": "esp",
+        "top": -125.1,
+        "left": 149.82,
+        "attrs": { "builder": "rust-std-esp" }
+      },
+      { "type": "wokwi-74hc595", "id": "sr1", "top": -20.4, "left": -186.56, "attrs": {} },
+      { "type": "wokwi-74hc595", "id": "sr2", "top": -20.4, "left": -109.76, "attrs": {} }
+    ],
+    "connections": [
+      [ "esp:TX", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX", "$serialMonitor:TX", "", [] ],
+      [ "sr1:Q7S", "sr2:DS", "green", [ "v-8.4", "h28.8" ] ],
+      [ "sr1:SHCP", "sr2:SHCP", "violet", [ "v-27.6", "h76.8" ] ],
+      [ "sr1:STCP", "sr2:STCP", "blue", [ "v-37.2", "h76.8" ] ]
+    ],
+    "serialMonitor": { "display": "terminal" },
+    "dependencies": {}
+  }
